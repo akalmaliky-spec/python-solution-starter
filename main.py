@@ -7,7 +7,6 @@
 """
 
 import sys
-from typing import List, Tuple, Optional
 
 
 def read_input() -> str:
