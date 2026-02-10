@@ -1,52 +1,27 @@
-"""
-Solution starter for coding problems.
-
-This module provides a template for solving coding challenges with:
-- Type hints for clarity
-- Proper docstrings
-- stdin/stdout handling
-- Easy testing interface
-"""
+"""Solution starter template for Python projects."""
 
 
-def solve(input_data: str) -> str:
+def solve():
+    """Main solution function.
+    
+    TODO: Implement your solution logic here.
+    Replace this placeholder with your actual code.
     """
-    Main solution function.
+    # Example: print output
+    print("Hello, world!")
+    
+    # Example: return result
+    return "Solution complete"
 
-    Args:
-        input_data: Raw input as a string (e.g., from stdin)
 
-    Returns:
-        The solution result as a string
-
-    Examples:
-        >>> solve("3\\n1 2 3")
-        '6'
+def helper_function():
+    """Helper function for solution.
+    
+    Add additional helper functions as needed.
     """
-    # ============ PLUG YOUR SOLUTION LOGIC HERE ============
-    # Parse input
-    lines = input_data.strip().split("\n")
-    numbers = list(map(int, lines[1].split()))
-
-    # TODO: Replace this with your actual solution logic
-    result = sum(numbers)
-
-    # ========================================================
-    return str(result)
-
-
-def main() -> None:
-    """
-    Entry point for reading from stdin and printing to stdout.
-
-    Reads all input, passes it to solve(), and prints the result.
-    """
-    import sys
-
-    input_data = sys.stdin.read()
-    output = solve(input_data)
-    print(output)
+    pass
 
 
 if __name__ == "__main__":
-    main()
+    result = solve()
+    print(f"Result: {result}")
