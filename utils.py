@@ -2,7 +2,7 @@
 
 import time
 from functools import wraps
-from typing import Any, Callable, List, Dict
+from typing import Any, Callable, Dict, List, Optional
 from logger import logger
 
 
@@ -48,7 +48,7 @@ def memoize(func: Callable) -> Callable:
     return wrapper
 
 
-def read_input(filename: str = None) -> List[str]:
+def read_input(filename: Optional[str] = None) -> List[str]:
     """Read input from file or stdin.
     
     Args:

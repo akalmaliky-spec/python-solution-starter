@@ -15,6 +15,9 @@ A minimal Python starter kit with solution code template for competitive program
 ```
 python-solution-starter/
 ├── main.py              # Main solution file with template
+├── utils.py             # Helpers: timer, memoize, input parsing
+├── config.py / logger.py# Env-based settings and logging
+├── tests/               # pytest test suite
 ├── requirements.txt     # Project dependencies
 ├── setup.py            # Package configuration
 ├── README.md           # This file
@@ -25,7 +28,7 @@ python-solution-starter/
 
 ### Prerequisites
 
-- Python 3.7 or higher
+- Python 3.8 or higher
 - pip (Python package manager)
 
 ### Installation
@@ -69,6 +72,14 @@ python main.py
 1. Install a package: `pip install package-name`
 2. Add to `requirements.txt`: `echo package-name==version >> requirements.txt`
 3. Update your code to use the new dependency
+
+## Testing
+
+```bash
+pip install pytest ruff black
+make test   # or: pytest tests
+make lint
+```
 
 ## License
 

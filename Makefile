@@ -15,16 +15,16 @@ install:
 	.venv/bin/pip install -r requirements.txt
 
 test:
-	python -m pytest tests.py -v
+	python -m pytest tests -v
 
 run:
 	python main.py
 
 lint:
-	python -m flake8 main.py tests.py --max-line-length=88
+	python -m ruff check main.py utils.py config.py logger.py tests/
 
 format:
-	python -m black main.py tests.py --line-length=88
+	python -m black main.py utils.py config.py logger.py tests/
 
 clean:
 	find . -type d -name __pycache__ -exec rm -r {} +

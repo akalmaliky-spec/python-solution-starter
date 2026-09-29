@@ -29,7 +29,7 @@ jobs:
           pip install ruff black pytest
 
       - name: Lint (ruff)
-        run: ruff check main.py tests/
+        run: ruff check main.py utils.py config.py logger.py tests/
 
       - name: Format check (black)
         run: black --check main.py tests/

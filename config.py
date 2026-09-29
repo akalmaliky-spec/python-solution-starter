@@ -1,14 +1,18 @@
 """Configuration module for the solution."""
 
 import os
-from dotenv import load_dotenv
+try:
+    from dotenv import load_dotenv
+except ImportError:  # python-dotenv is optional; plain env vars still work
+    load_dotenv = None
 
-# Load environment variables from .env file
-load_dotenv()
+# Load environment variables from .env file (if python-dotenv is installed)
+if load_dotenv is not None:
+    load_dotenv()
 
 # Application settings
 DEBUG = os.getenv("DEBUG", "False").lower() == "true"
-LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
+LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO").upper()
 MAX_RETRIES = int(os.getenv("MAX_RETRIES", "3"))
 TIMEOUT = int(os.getenv("TIMEOUT", "30"))
 

@@ -18,11 +18,14 @@ def setup_logger(name=__name__):
         return logging.getLogger(name)
     
     logger = logging.getLogger(name)
-    logger.setLevel(getattr(logging, LOG_LEVEL))
+    if logger.handlers:  # already configured; don't add duplicate handlers
+        return logger
+    level = getattr(logging, LOG_LEVEL, logging.INFO)
+    logger.setLevel(level)
     
     # Console handler
     console_handler = logging.StreamHandler(sys.stdout)
-    console_handler.setLevel(getattr(logging, LOG_LEVEL))
+    console_handler.setLevel(level)
     console_formatter = logging.Formatter(LOG_FORMAT)
     console_handler.setFormatter(console_formatter)
     logger.addHandler(console_handler)
@@ -30,7 +33,7 @@ def setup_logger(name=__name__):
     # File handler
     try:
         file_handler = logging.FileHandler(LOG_FILE)
-        file_handler.setLevel(getattr(logging, LOG_LEVEL))
+        file_handler.setLevel(level)
         file_formatter = logging.Formatter(LOG_FORMAT)
         file_handler.setFormatter(file_formatter)
         logger.addHandler(file_handler)
